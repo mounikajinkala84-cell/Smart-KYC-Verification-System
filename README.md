@@ -288,36 +288,8 @@ kanna-kyc/
     ├── logo.png        ← (optional) project logo
     └── sample/         ← sample images for testing
 
-🧪 How to Run (Detailed Guide)
-Option 1: Direct Run
 
-Download ZIP / Clone project
 
-Open folder
-
-Double-click index.html
-
-Browser opens automatically
-
-Option 2: Run inside VS Code
-
-Open folder inside VS Code
-
-Install Live Server extension
-
-Right-click → “Open with Live Server”
-
-Option 3: Host on GitHub Pages
-
-Go to Repo → Settings
-
-Pages
-
-Select Branch: main
-
-Save
-
-Your project becomes a live website
 
 🌱 Why This Project is Useful for Students
 
@@ -364,30 +336,17 @@ Multi-layer identity scoring
 
 Machine learning risk analysis
 
-If you want, I can build ANY of these upgrades.
-
 🪪 About the Developer
 
 Project Name:
-⭐ Kanna – Smart KYC Verification System
+⭐ Smart KYC Verification System
 
 Developed By:
 👩‍💻 Mounika Jinkala
 
-Assisted By:
-🤖 ChatGPT – UI, Logic, Documentation
-
 📄 License
 
 This project is open-source and free to use for learning, academic submissions, and demonstrations.
-
-If you want, I can also generate:
-
-✔ Project Report (IEEE Format)
-✔ Abstract for college submission
-✔ Full PPT presentation for Kanna project
-✔ Logo for Kanna
-✔ GitHub tags + SEO description
 If any details is wrong 
 ![WhatsApp Image 2025-11-23 at 12 04 04_a19368bb](https://github.com/user-attachments/assets/b2a2e80d-9e7f-462a-abef-447aad6ef3d9)
 If all details is right
