@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>KYC Verification Prototype</title>
+    <style>
+        body {
+            font-family: Arial;
+            margin: 40px;
+            background: #f4f4f4;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            width: 450px;
+            margin: auto;
+            border-radius: 10px;
+            box-shadow: 0 0 10px gray;
+        }
+        input, button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 6px;
+        }
+        button:hover {
+            background: #005be0;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>KYC Verification</h2>
+
+    <h3>Document Details</h3>
+    <input id="doc_name" placeholder="Document Name">
+    <input id="doc_dob" placeholder="Document DOB (DD-MM-YYYY)">
+    <input id="doc_id" placeholder="Document ID">
+
+    <h3>Selfie Details</h3>
+    <input id="selfie_name" placeholder="Selfie Detected Name">
+    <input id="selfie_dob" placeholder="Selfie Detected DOB">
+    <input id="selfie_id" placeholder="Selfie Detected ID">
+
+    <h3>Upload Images</h3>
+    <input type="file" id="doc_img">
+    <input type="file" id="selfie_img">
+
+    <button onclick="verifyKYC()">Verify KYC</button>
+
+    <div id="result"></div>
+</div>
+
+<script>
+
+function verifyKYC() {
+
+    // Get text values
+    let doc_name = document.getElementById("doc_name").value.trim();
+    let doc_dob = document.getElementById("doc_dob").value.trim();
+    let doc_id  = document.getElementById("doc_id").value.trim();
+
+    let selfie_name = document.getElementById("selfie_name").value.trim();
+    let selfie_dob  = document.getElementById("selfie_dob").value.trim();
+    let selfie_id   = document.getElementById("selfie_id").value.trim();
+
+    // Get uploaded images
+    let doc_img = document.getElementById("doc_img").files[0];
+    let selfie_img = document.getElementById("selfie_img").files[0];
+
+    let resultBox = document.getElementById("result");
+
+    // If no images uploaded
+    if (!doc_img || !selfie_img) {
+        resultBox.innerHTML = "<h2 style='color:red;'>❌ Please upload both images</h2>";
+        return;
+    }
+
+    // Check if both image names are same (simple demo logic)
+    let face_match = (doc_img.name === selfie_img.name);
+
+    // Text verification
+    let name_match = (doc_name.toLowerCase() === selfie_name.toLowerCase());
+    let dob_match  = (doc_dob === selfie_dob);
+    let id_match   = (doc_id === selfie_id);
+
+    // Final decision
+    if (name_match && dob_match && id_match && face_match) {
+        resultBox.innerHTML = "<h2 style='color:green;'>✔ KYC APPROVED</h2>";
+    }
+    else if (name_match || dob_match || id_match) {
+        resultBox.innerHTML = "<h2 style='color:orange;'>⚠ PARTIAL MATCH – Manual Review Required</h2>";
+    }
+    else {
+        resultBox.innerHTML = "<h2 style='color:red;'>❌ KYC REJECTED (Images do not match)</h2>";
+    }
+}
+
+</script>
+
+</body>
+</html>
